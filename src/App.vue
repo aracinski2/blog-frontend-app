@@ -24,10 +24,10 @@
         <a class="nav-link" href="/posts/new">New</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/posts/signup">Signup</a>
+        <a class="nav-link" href="/signup">Signup</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/posts/login">Login</a>
+        <a class="nav-link" href="/login">Login</a>
       </li>
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,6 +50,7 @@
     </form>
   </div>
 </nav>
+  <h1>Logged In? {{ isLoggedIn() }}</h1>
     <router-view/>
   </div>
 </template>
@@ -60,3 +61,17 @@ body {
   background-image: url("./assets/webb.png");
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>
