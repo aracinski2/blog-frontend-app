@@ -51,6 +51,7 @@
   </div>
 </nav>
   <h1>Logged In? {{ isLoggedIn() }}</h1>
+  <h1>User id? {{ getUserId() }}</h1>
     <router-view/>
   </div>
 </template>
@@ -71,6 +72,11 @@ export default {
       } else {
         return false;
       }
+    },
+    getUserId: function () {
+      console.log("getting user id");
+      // console.log(localStorage.getItem("user_id"));
+      return localStorage.getItem("user_id");
     },
   },
 };
