@@ -14,6 +14,8 @@
       <div class="form-group">
         <label>Post:</label>
         <input type="text" class="form-control" v-model="body">
+        <small v-if="body.length <= 50">{{ 50 - body.length }} characters remaining</small>
+        <small class="text-danger" v-if="body.length > 50">Your post is too long</small>
       </div>
       <div class="form-group">
         <label>Image:</label>
